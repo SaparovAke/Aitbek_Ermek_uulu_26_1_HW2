@@ -28,4 +28,7 @@ def product_detail_view(request, id):
             'reviews': product.review_set.all()
         }
 
+
+
+
         return render(request, 'products/detail.html', context=context)
