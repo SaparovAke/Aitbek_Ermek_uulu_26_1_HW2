@@ -16,7 +16,7 @@
             integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
             crossorigin="anonymous"></script>
     {% block head %}
-    
+
     {% endblock %}
 </head>
 <body>
@@ -40,9 +40,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/products/create/">Product Create</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
+                {% if user.is_anonymus %}
+                    <li class="nav-item">
+                        <a class="/users/login/">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="/users/register/">Register</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/products/create/">Product Create</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/logout/">Logout</a>
+                    </li>
+                {% endif %}
+
             </ul>
         </div>
     </div>

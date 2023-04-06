@@ -15,7 +15,8 @@ def product_view(request):
         product = Product.objects.all()
 
         context = {
-            'products': product
+            'products': product,
+            'user': request.user
         }
 
         return render(request, 'products/product.html', context=context)
@@ -27,7 +28,8 @@ def product_detail_view(request, id):
         context = {
             'product': product,
             'reviews': product.review_set.all(),
-            'form': CommentCreateForm
+            'form': CommentCreateForm,
+            'user': request.user
         }
         return render(request, 'products/detail.html', context=context)
 
